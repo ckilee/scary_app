@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ScaryApk</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="choose_image">Choose the image:</string>
+    <string name="choose_audio">Choose the audio:</string>
+</resources>
