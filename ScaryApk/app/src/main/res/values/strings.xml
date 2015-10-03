@@ -7,6 +7,7 @@
     <string name="choose_audio">Choose the audio:</string>
     <string name="choose_time">Choose time to scare:</string>
     <string name="start_scare">Scare!</string>
+    <string name="play">Play</string>
 
     <string-array name="time_arrays">
         <item>5 seconds</item>

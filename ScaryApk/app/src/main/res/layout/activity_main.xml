@@ -23,7 +23,10 @@
         android:layout_alignLeft="@+id/choose_audio"
         android:layout_alignStart="@+id/choose_audio"
         android:prompt="@string/choose_audio"
-        android:entries="@array/audio_arrays" />
+        android:entries="@array/audio_arrays"
+        android:layout_toStartOf="@+id/button_scare"
+        android:layout_alignRight="@+id/button_scare"
+        android:layout_alignEnd="@+id/button_scare" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start_scare"
-        android:id="@+id/start_scare"
+        android:id="@+id/button_scare"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
@@ -78,5 +81,14 @@
         android:layout_alignParentStart="true"
         android:prompt="@string/choose_time"
         android:entries="@array/time_arrays" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/play"
+        android:id="@+id/button_play"
+        android:layout_alignTop="@+id/spinner_audio"
+        android:layout_toRightOf="@+id/spinner_audio"
+        android:layout_toEndOf="@+id/spinner_audio" />
 
 </RelativeLayout>

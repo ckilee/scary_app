@@ -2,6 +2,7 @@ package dev.br.scaryapk;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,8 @@ public class MainActivity extends ActionBarActivity {
     private Spinner imageSpinner;
     private ImageView imageView;
     private Spinner timeSpinner;
+    private Button scareButton;
+    private Button playButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         imageSpinner = (Spinner)findViewById(R.id.spinner_image);
         imageView = (ImageView)findViewById(R.id.imageView);
+        scareButton = (Button)findViewById(R.id.button_scare);
+        playButton = (Button)findViewById(R.id.button_play);
         configureViews();
     }
 
@@ -54,6 +59,29 @@ public class MainActivity extends ActionBarActivity {
 
     private void configureViews(){
         imageSpinner.setOnItemSelectedListener(new ImageOnItemSelectedListener());
+
+        //Scare Button
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Log.i("MainActivity","TESTE");
+            }
+        };
+        scareButton.setOnClickListener(listener);
+
+        //Play Button
+        View.OnClickListener listenerPlay = new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                playSound();
+            }
+        };
+        playButton.setOnClickListener(listenerPlay);
+    }
+
+    private void playSound(){
+        MediaPlayer mp = MediaPlayer.create(this,R.raw.audio1);
+        mp.start();
     }
 
     public class ImageOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
@@ -75,7 +103,7 @@ public class MainActivity extends ActionBarActivity {
                 imageResource = R.drawable.scaryface2;
             }
             Drawable image = getResources().getDrawable(imageResource);
-            if(imageView!=null)
+            if(imageView!=null)  //imageView is a ImageView
                 imageView.setImageDrawable(image);
         }
 
