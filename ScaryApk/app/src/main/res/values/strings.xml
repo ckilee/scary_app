@@ -14,6 +14,8 @@
         <item>10 seconds</item>
         <item>15 seconds</item>
         <item>20 seconds</item>
+        <item>25 seconds</item>
+        <item>30 seconds</item>
     </string-array>
 
     <string-array name="audio_arrays">
@@ -30,4 +32,7 @@
         <item>Scary Face 1</item>
         <item>Scary Face 2</item>
     </string-array>
+    <string name="title_activity_scare">ScareActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

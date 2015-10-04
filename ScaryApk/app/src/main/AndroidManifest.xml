@@ -16,6 +16,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".WaitingForScare"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <receiver
+            android:name=".ScareReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="dev.br.scaryapk.OPEN_SCARE_SCREEN" >
+                </action>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".ScareActivity"
+            android:label="@string/title_activity_scare" >
+        </activity>
     </application>
 
 </manifest>
