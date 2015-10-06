@@ -16,6 +16,8 @@ public class ScareReceiver extends BroadcastReceiver {
         Intent i = new Intent();
         i.setClassName("dev.br.scaryapk", "dev.br.scaryapk.ScareActivity");
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.putExtra(MainActivity.SOUND_EXTRA, intent.getIntExtra(MainActivity.SOUND_EXTRA, 0));
+        i.putExtra(MainActivity.IMAGE_EXTRA, intent.getIntExtra(MainActivity.IMAGE_EXTRA, 0));
         context.startActivity(i);
     }
 }

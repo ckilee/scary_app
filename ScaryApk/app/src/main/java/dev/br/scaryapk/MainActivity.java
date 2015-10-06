@@ -27,6 +27,10 @@ public class MainActivity extends Activity {
     private Button playButton;
     private int currentTime;
     public static final String TIME_EXTRA = "TimeExtra";
+    public static final String IMAGE_EXTRA = "ImageExtra";
+    public static final String SOUND_EXTRA = "SoundExtra";
+    private int currentImageID = 0;
+    private int currentSoundID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,8 @@ public class MainActivity extends Activity {
 
         timeSpinner.setOnItemSelectedListener(new TimeOnItemSelectedListener());
 
+        audioSpinner.setOnItemSelectedListener(new SoundOnItemSelectedListener());
+
         //Scare Button
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -91,6 +97,8 @@ public class MainActivity extends Activity {
     private void doScare(){
         Intent intent = new Intent(MainActivity.this,WaitingForScare.class);
         intent.putExtra(TIME_EXTRA,currentTime);
+        intent.putExtra(IMAGE_EXTRA,currentImageID);
+        intent.putExtra(SOUND_EXTRA,currentSoundID);
         startService(intent);
         this.finish();
     }
@@ -106,6 +114,7 @@ public class MainActivity extends Activity {
             rawAudio = R.raw.audio3;
         if(selected.equals("Audio 4"))
             rawAudio = R.raw.audio4;
+        currentSoundID = rawAudio;
 
         MediaPlayer mp = MediaPlayer.create(this,rawAudio);
         mp.start();
@@ -127,6 +136,7 @@ public class MainActivity extends Activity {
             } else if(selected.equals("Scary Face 2")){
                 imageResource = R.drawable.scaryface2;
             }
+            currentImageID = imageResource;
             Drawable image = getResources().getDrawable(imageResource);
             if(imageView!=null)  //imageView is a ImageView
                 imageView.setImageDrawable(image);
@@ -155,6 +165,27 @@ public class MainActivity extends Activity {
             } else if(selected.equals("30 seconds")){
                 currentTime = 30;
             }
+
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
+    }
+
+    public class SoundOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
+        public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
+
+            String selected = parent.getItemAtPosition(pos).toString();
+            if(selected.equals("Audio 1"))
+                currentSoundID = R.raw.audio1;
+            if(selected.equals("Audio 2"))
+                currentSoundID = R.raw.audio2;
+            if(selected.equals("Audio 3"))
+                currentSoundID = R.raw.audio3;
+            if(selected.equals("Audio 4"))
+                currentSoundID = R.raw.audio4;
 
         }
 

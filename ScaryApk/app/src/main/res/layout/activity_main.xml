@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:text="@string/choose_audio"
         android:id="@+id/choose_audio"
-        android:layout_below="@+id/spinner_time"
-        android:layout_alignRight="@+id/choose_image"
-        android:layout_alignEnd="@+id/choose_image" />
+        android:layout_above="@+id/spinner_audio"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         android:id="@+id/spinner_audio"
         android:prompt="@string/choose_audio"
         android:entries="@array/audio_arrays"
-        android:layout_below="@+id/choose_audio"
+        android:layout_above="@+id/choose_image"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/textViewTitle"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="@string/choose_image"
         android:id="@+id/choose_image"
-        android:layout_below="@+id/spinner_audio"
+        android:layout_above="@+id/spinner_image"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -41,9 +41,9 @@
         android:id="@+id/spinner_image"
         android:prompt="@string/choose_image"
         android:entries="@array/image_arrays"
-        android:layout_below="@+id/choose_image"
-        android:layout_alignLeft="@+id/choose_audio"
-        android:layout_alignStart="@+id/choose_audio"
+        android:layout_above="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/spinner_audio"
         android:layout_alignEnd="@+id/spinner_audio" />
 
@@ -67,12 +67,12 @@
         android:scaleType="fitCenter" /> -->
 
     <ImageView
-        android:layout_width="200px"
-        android:layout_height="200px"
+        android:layout_width="500px"
+        android:layout_height="500px"
         android:id="@+id/imageView"
         android:src="@drawable/anabelle"
         android:scaleType="fitCenter"
-        android:layout_below="@+id/spinner_image"
+        android:layout_above="@+id/button_scare"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:text="@string/choose_time"
         android:id="@+id/choose_time"
-        android:layout_below="@+id/textViewTitle"
+        android:layout_above="@+id/spinner_time"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -91,12 +91,11 @@
         android:id="@+id/spinner_time"
         android:prompt="@string/choose_time"
         android:entries="@array/time_arrays"
-        android:layout_below="@+id/choose_time"
+        android:layout_above="@+id/choose_audio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/button_play"
-        android:layout_alignRight="@+id/textViewTitle"
-        android:layout_alignEnd="@+id/textViewTitle" />
+        android:layout_alignRight="@+id/choose_time"
+        android:layout_alignEnd="@+id/choose_time" />
 
     <Button
         android:layout_width="wrap_content"

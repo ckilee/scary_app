@@ -28,6 +28,8 @@ public class WaitingForScare extends Service {
         }
 
         Intent scareIntent = new Intent();
+        scareIntent.putExtra(MainActivity.SOUND_EXTRA,intent.getIntExtra(MainActivity.SOUND_EXTRA,0));
+        scareIntent.putExtra(MainActivity.IMAGE_EXTRA,intent.getIntExtra(MainActivity.IMAGE_EXTRA,0));
         scareIntent.setAction("dev.br.scaryapk.OPEN_SCARE_SCREEN");
         sendBroadcast(scareIntent);
         return START_STICKY;

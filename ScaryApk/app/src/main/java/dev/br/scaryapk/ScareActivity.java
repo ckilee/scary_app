@@ -1,17 +1,41 @@
 package dev.br.scaryapk;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 
-public class ScareActivity extends ActionBarActivity {
+public class ScareActivity extends Activity {
+    private ImageView scareImageView;
+    private int currentImageID = 0;
+    private int currentSoundID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scare);
+
+        Intent i = getIntent();
+
+        currentImageID = i.getIntExtra(MainActivity.IMAGE_EXTRA,0);
+        currentSoundID = i.getIntExtra(MainActivity.SOUND_EXTRA,0);
+
+        scareImageView = (ImageView)findViewById(R.id.imageViewScare);
+
+
+        Drawable image = getResources().getDrawable(currentImageID);
+        if(scareImageView!=null)  //imageView is a ImageView
+            scareImageView.setImageDrawable(image);
+
+        MediaPlayer mp = MediaPlayer.create(this,currentSoundID);
+        mp.start();
+
     }
 
     @Override
