@@ -2,6 +2,7 @@ package dev.br.scaryapk;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
@@ -11,9 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -36,12 +40,28 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         imageSpinner = (Spinner)findViewById(R.id.spinner_image);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.image_arrays, R.layout.spinnertext);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        imageSpinner.setAdapter(adapter);
+//when an item is selected call the selectSensor method
+        //imageSpinner.setOnItemSelectedListener(new ImageOnItemSelectedListener());
+
         imageView = (ImageView)findViewById(R.id.imageView);
         scareButton = (Button)findViewById(R.id.button_scare);
         playButton = (Button)findViewById(R.id.button_play);
         audioSpinner = (Spinner)findViewById(R.id.spinner_audio);
+        ArrayAdapter adapterAudio = ArrayAdapter.createFromResource(this, R.array.audio_arrays, R.layout.spinnertext);
+        adapterAudio.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        audioSpinner.setAdapter(adapterAudio);
+
+
         timeSpinner = (Spinner)findViewById(R.id.spinner_time);
+        ArrayAdapter adapterTime = ArrayAdapter.createFromResource(this, R.array.time_arrays, R.layout.spinnertext);
+        adapterTime.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeSpinner.setAdapter(adapterTime);
+
         currentTime = 5;
         configureViews();
     }

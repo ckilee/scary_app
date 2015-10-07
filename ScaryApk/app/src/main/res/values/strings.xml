@@ -9,7 +9,7 @@
     <string name="start_scare">Scare!</string>
     <string name="play">Play</string>
 
-    <string-array name="time_arrays">
+    <string-array name="time_arrays" >
         <item>5 seconds</item>
         <item>10 seconds</item>
         <item>15 seconds</item>
@@ -35,4 +35,5 @@
     <string name="title_activity_scare">ScareActivity</string>
 
     <string name="hello_world">Hello world!</string>
+
 </resources>

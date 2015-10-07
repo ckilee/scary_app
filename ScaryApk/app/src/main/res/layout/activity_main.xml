@@ -3,16 +3,20 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/halloween">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/choose_audio"
         android:id="@+id/choose_audio"
-        android:layout_above="@+id/spinner_audio"
+        android:layout_below="@+id/spinner_time"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp"
+        android:textColor="#e0434b"
+        android:textStyle="bold" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -20,20 +24,23 @@
         android:id="@+id/spinner_audio"
         android:prompt="@string/choose_audio"
         android:entries="@array/audio_arrays"
-        android:layout_above="@+id/choose_image"
+        android:layout_below="@+id/choose_audio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textViewTitle"
-        android:layout_alignEnd="@+id/textViewTitle" />
+        android:layout_toStartOf="@+id/button_play"
+        android:layout_toLeftOf="@+id/button_play" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/choose_image"
         android:id="@+id/choose_image"
-        android:layout_above="@+id/spinner_image"
+        android:layout_below="@+id/spinner_audio"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp"
+        android:textColor="#e0434b"
+        android:textStyle="bold" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -41,9 +48,11 @@
         android:id="@+id/spinner_image"
         android:prompt="@string/choose_image"
         android:entries="@array/image_arrays"
-        android:layout_above="@+id/imageView"
+        android:layout_below="@+id/choose_image"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:textColor="#e0434b"
+        android:layout_toStartOf="@+id/button_scare"
         android:layout_alignRight="@+id/spinner_audio"
         android:layout_alignEnd="@+id/spinner_audio" />
 
@@ -52,8 +61,12 @@
         android:layout_height="wrap_content"
         android:text="@string/start_scare"
         android:id="@+id/button_scare"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <!--
     <ImageView
@@ -72,18 +85,22 @@
         android:id="@+id/imageView"
         android:src="@drawable/anabelle"
         android:scaleType="fitCenter"
-        android:layout_above="@+id/button_scare"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/spinner_audio"
+        android:layout_alignRight="@+id/textViewTitle"
+        android:layout_alignEnd="@+id/textViewTitle" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/choose_time"
         android:id="@+id/choose_time"
-        android:layout_above="@+id/spinner_time"
+        android:layout_below="@+id/textViewTitle"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp"
+        android:textColor="#e0434b"
+        android:textStyle="bold" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -91,20 +108,22 @@
         android:id="@+id/spinner_time"
         android:prompt="@string/choose_time"
         android:entries="@array/time_arrays"
-        android:layout_above="@+id/choose_audio"
+        android:layout_below="@+id/choose_time"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/choose_time"
-        android:layout_alignEnd="@+id/choose_time" />
+        android:textColor="#e0434b"
+        android:layout_toStartOf="@+id/button_scare"
+        android:layout_alignRight="@+id/spinner_audio"
+        android:layout_alignEnd="@+id/spinner_audio" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/play"
         android:id="@+id/button_play"
-        android:layout_alignTop="@+id/spinner_audio"
-        android:layout_toRightOf="@+id/spinner_audio"
-        android:layout_toEndOf="@+id/spinner_audio" />
+        android:layout_below="@+id/choose_audio"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -115,7 +134,7 @@
         android:textColor="#ee0303"
         android:textStyle="italic"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:typeface="monospace" />
 
 </RelativeLayout>
