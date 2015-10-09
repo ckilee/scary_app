@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.image_arrays, R.layout.spinnertext);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         imageSpinner.setAdapter(adapter);
-//when an item is selected call the selectSensor method
+        //when an item is selected call the selectSensor method
         //imageSpinner.setOnItemSelectedListener(new ImageOnItemSelectedListener());
 
         imageView = (ImageView)findViewById(R.id.imageView);
