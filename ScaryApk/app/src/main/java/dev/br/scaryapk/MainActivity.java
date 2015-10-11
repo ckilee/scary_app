@@ -49,8 +49,10 @@ public class MainActivity extends Activity {
         //imageSpinner.setOnItemSelectedListener(new ImageOnItemSelectedListener());
 
         imageView = (ImageView)findViewById(R.id.imageView);
+
         scareButton = (Button)findViewById(R.id.button_scare);
         playButton = (Button)findViewById(R.id.button_play);
+        playButton.setWidth(playButton.getHeight());
         audioSpinner = (Spinner)findViewById(R.id.spinner_audio);
         ArrayAdapter adapterAudio = ArrayAdapter.createFromResource(this, R.array.audio_arrays, R.layout.spinnertext);
         adapterAudio.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
