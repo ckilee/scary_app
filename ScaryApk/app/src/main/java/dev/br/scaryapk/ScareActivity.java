@@ -1,9 +1,11 @@
 package dev.br.scaryapk;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,11 +27,13 @@ public class ScareActivity extends Activity {
 
         currentImageID = i.getIntExtra(MainActivity.IMAGE_EXTRA,0);
         currentSoundID = i.getIntExtra(MainActivity.SOUND_EXTRA,0);
-
         scareImageView = (ImageView)findViewById(R.id.imageViewScare);
 
         MediaPlayer mp = MediaPlayer.create(this,currentSoundID);
         mp.start();
+
+        Vibrator v = (Vibrator) this.getBaseContext().getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(1000);
 
         Drawable image = getResources().getDrawable(currentImageID);
         if(scareImageView!=null)  //imageView is a ImageView
