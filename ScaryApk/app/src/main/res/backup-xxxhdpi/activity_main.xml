@@ -14,8 +14,8 @@
         android:textColor="#e0434b"
         android:textStyle="bold"
         android:layout_below="@+id/spinner_time"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/spinner_time"
+        android:layout_alignStart="@+id/spinner_time" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -27,8 +27,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/button_play"
-        android:layout_alignRight="@+id/choose_audio"
-        android:layout_alignEnd="@+id/choose_audio" />
+        android:layout_toLeftOf="@+id/button_play" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,9 +36,7 @@
         android:id="@+id/choose_image"
         android:textColor="#e0434b"
         android:textStyle="bold"
-        android:layout_below="@+id/spinner_audio"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/spinner_audio" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -60,11 +57,12 @@
         android:layout_height="wrap_content"
         android:text="@string/start_scare"
         android:id="@+id/button_scare"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="34dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView" />
+        android:layout_alignParentStart="true" />
 
     <!--
     <ImageView
@@ -83,21 +81,25 @@
         android:id="@+id/imageView"
         android:src="@drawable/anabelle"
         android:scaleType="fitCenter"
+        android:layout_marginTop="24dp"
         android:layout_below="@+id/spinner_audio"
-        android:layout_toRightOf="@+id/spinner_time"
-        android:layout_toEndOf="@+id/spinner_time"
-        android:layout_alignBottom="@+id/spinner_image" />
+        android:layout_alignRight="@+id/textViewTitle"
+        android:layout_alignEnd="@+id/textViewTitle"
+        android:layout_alignBottom="@+id/spinner_image"
+        android:layout_toRightOf="@+id/choose_time"
+        android:layout_toEndOf="@+id/choose_time" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/choose_time"
         android:id="@+id/choose_time"
-        android:textColor="#e0434b"
-        android:textStyle="bold"
         android:layout_below="@+id/textViewTitle"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp"
+        android:textColor="#e0434b"
+        android:textStyle="bold" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -109,18 +111,18 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="#e0434b"
-        android:layout_toStartOf="@+id/button_scare"
-        android:layout_alignRight="@+id/choose_time"
-        android:layout_alignEnd="@+id/choose_time" />
+        android:layout_toStartOf="@+id/button_play"
+        android:layout_toLeftOf="@+id/button_play" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_play"
-        android:background="@drawable/play38"
         android:layout_below="@+id/choose_audio"
-        android:layout_toRightOf="@+id/choose_audio"
-        android:layout_toEndOf="@+id/choose_audio" />
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:background="@drawable/play38"
+        android:layout_alignBottom="@+id/spinner_audio" />
 
     <ImageView
         android:layout_width="wrap_content"
