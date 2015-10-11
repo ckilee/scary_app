@@ -28,13 +28,14 @@ public class ScareActivity extends Activity {
 
         scareImageView = (ImageView)findViewById(R.id.imageViewScare);
 
+        MediaPlayer mp = MediaPlayer.create(this,currentSoundID);
+        mp.start();
 
         Drawable image = getResources().getDrawable(currentImageID);
         if(scareImageView!=null)  //imageView is a ImageView
             scareImageView.setImageDrawable(image);
 
-        MediaPlayer mp = MediaPlayer.create(this,currentSoundID);
-        mp.start();
+
 
     }
 
