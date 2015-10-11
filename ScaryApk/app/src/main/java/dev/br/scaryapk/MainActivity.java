@@ -172,9 +172,7 @@ public class MainActivity extends Activity {
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
 
             String selected = parent.getItemAtPosition(pos).toString();
-            if(selected.equals("5 seconds")){
-                currentTime = 5;
-            } else if(selected.equals("10 seconds")){
+            if(selected.equals("10 seconds")){
                 currentTime = 10;
             } else if(selected.equals("15 seconds")){
                 currentTime = 15;
@@ -184,6 +182,8 @@ public class MainActivity extends Activity {
                 currentTime = 25;
             } else if(selected.equals("30 seconds")){
                 currentTime = 30;
+            } else if(selected.equals("35 seconds")){
+                currentTime = 35;
             }
 
         }

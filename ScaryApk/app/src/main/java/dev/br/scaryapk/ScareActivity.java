@@ -35,6 +35,8 @@ public class ScareActivity extends Activity {
         if(scareImageView!=null)  //imageView is a ImageView
             scareImageView.setImageDrawable(image);
 
+        stopService(new Intent(ScareActivity.this, WaitingForScare.class));
+
 
 
     }
