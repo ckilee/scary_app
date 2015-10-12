@@ -20,6 +20,8 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.inmobi.sdk.InMobiSdk;
+
 
 public class MainActivity extends Activity {
 //public class MainActivity extends Activity {
@@ -40,6 +42,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
+        InMobiSdk.init(this, "YOUR_ACCOUNT_ID");
 
         imageSpinner = (Spinner)findViewById(R.id.spinner_image);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.image_arrays, R.layout.spinnertext);
@@ -217,3 +222,5 @@ public class MainActivity extends Activity {
         }
     }
 }
+
+

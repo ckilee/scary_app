@@ -8,15 +8,24 @@ import android.media.MediaPlayer;
 import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+
+import com.inmobi.ads.InMobiAdRequestStatus;
+import com.inmobi.ads.InMobiInterstitial;
+
+import java.util.Map;
 
 
 public class ScareActivity extends Activity {
     private ImageView scareImageView;
     private int currentImageID = 0;
     private int currentSoundID = 0;
+    private static final long YOUR_PLACEMENT_ID = 1445357157400L;
+    private InMobiInterstitial mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +50,55 @@ public class ScareActivity extends Activity {
 
         stopService(new Intent(ScareActivity.this, WaitingForScare.class));
 
+        mInterstitialAd = new InMobiInterstitial(ScareActivity.this, YOUR_PLACEMENT_ID,
+                new InMobiInterstitial.InterstitialAdListener() {
+                    @Override
+                    public void onAdRewardActionCompleted(InMobiInterstitial inMobiInterstitial, Map<Object, Object> map) {
 
+                    }
 
+                    @Override
+                    public void onAdDisplayed(InMobiInterstitial inMobiInterstitial) {
+
+                    }
+
+                    @Override
+                    public void onAdDismissed(InMobiInterstitial inMobiInterstitial) {
+
+                    }
+
+                    @Override
+                    public void onAdInteraction(InMobiInterstitial inMobiInterstitial, Map<Object, Object> map) {
+
+                    }
+
+                    @Override
+                    public void onAdLoadSucceeded(InMobiInterstitial inMobiInterstitial) {
+                        if (inMobiInterstitial.isReady()) {
+                            /*if (mShowAdButton != null) {
+                                mShowAdButton.setVisibility(View.VISIBLE);
+                                mShowAdWithAnimation.setVisibility(View.VISIBLE);
+                            }*/
+
+                            mInterstitialAd.show();
+                        }
+                    }
+
+                    @Override
+                    public void onAdLoadFailed(InMobiInterstitial inMobiInterstitial, InMobiAdRequestStatus
+                            inMobiAdRequestStatus) {
+                        Log.w("ScareActivity", "Unable to load interstitial ad (error message: " +
+                                inMobiAdRequestStatus.getMessage() + ")");
+                    }
+
+                    @Override
+                    public void onUserLeftApplication(InMobiInterstitial inMobiInterstitial) {
+
+                    }
+                });
+
+        mInterstitialAd.load();
+        //mInterstitialAd.show();
     }
 
     @Override
@@ -66,4 +122,6 @@ public class ScareActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
