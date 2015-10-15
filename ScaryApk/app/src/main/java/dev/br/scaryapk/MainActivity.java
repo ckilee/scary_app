@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
-        InMobiSdk.init(this, "YOUR_ACCOUNT_ID");
+        InMobiSdk.init(this, "76a9e8d02c1141d9a7dcdbd9de8e055a");
 
         imageSpinner = (Spinner)findViewById(R.id.spinner_image);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.image_arrays, R.layout.spinnertext);

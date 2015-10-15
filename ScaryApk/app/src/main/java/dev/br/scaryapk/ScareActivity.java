@@ -24,7 +24,7 @@ public class ScareActivity extends Activity {
     private ImageView scareImageView;
     private int currentImageID = 0;
     private int currentSoundID = 0;
-    private static final long YOUR_PLACEMENT_ID = 1445357157400L;
+    private static final long YOUR_PLACEMENT_ID = 1445369189571L;
     private InMobiInterstitial mInterstitialAd;
 
     @Override
