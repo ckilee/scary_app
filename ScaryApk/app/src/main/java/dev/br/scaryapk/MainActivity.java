@@ -152,8 +152,8 @@ public class MainActivity extends Activity {
 
             String selected = parent.getItemAtPosition(pos).toString();
             int imageResource = 0;
-            if(selected.equals("Doll")){
-                imageResource = R.drawable.anabelle;
+            if(selected.equals("Daughter")){
+                imageResource = R.drawable.daughter;
             } else if(selected.equals("Clown")){
                 imageResource = R.drawable.clown;
             } else if(selected.equals("Daemon")){
