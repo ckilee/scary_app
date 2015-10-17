@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.Map;
 
@@ -52,9 +55,15 @@ public class ScareActivity extends Activity {
         if(scareImageView!=null)  //imageView is a ImageView
             scareImageView.setImageDrawable(image);
 
-        stopService(new Intent(ScareActivity.this, WaitingForScare.class));
+        new ShowInterstitialTask().execute(0);
 
+    }
 
+    private void displayInterstitial(){
+        InterstitialAd mInterstitialAd = MainActivity.getInstance().getMInterstitialAd();
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
     }
 
     @Override
@@ -78,6 +87,29 @@ public class ScareActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private class ShowInterstitialTask extends AsyncTask<Integer,Void,Void>{
+
+        @Override
+        protected Void doInBackground(Integer... params){
+            try {
+                Thread.sleep(2500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void param) {
+            displayInterstitial();
+        }
+    }
+
+
 
 
 }

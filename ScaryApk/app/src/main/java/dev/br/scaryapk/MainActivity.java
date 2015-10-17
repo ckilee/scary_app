@@ -1,6 +1,8 @@
 package dev.br.scaryapk;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -20,6 +22,13 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
+import java.util.Calendar;
+import java.util.Date;
+
 
 public class MainActivity extends Activity {
 //public class MainActivity extends Activity {
@@ -35,11 +44,24 @@ public class MainActivity extends Activity {
     public static final String SOUND_EXTRA = "SoundExtra";
     private int currentImageID = 0;
     private int currentSoundID = 0;
+    private InterstitialAd mInterstitialAd;
+    private static MainActivity Instance;
+
+    public MainActivity(){
+        super();
+        Instance = this;
+    }
+
+    public static MainActivity getInstance(){
+        return Instance;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loadAdware();
 
         imageSpinner = (Spinner)findViewById(R.id.spinner_image);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.image_arrays, R.layout.spinnertext);
@@ -66,6 +88,26 @@ public class MainActivity extends Activity {
 
         currentTime = 5;
         configureViews();
+    }
+
+    private void loadAdware(){
+        //Adware Main Activity
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        //AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("E112885C2D32D31690C7B60F25C89356")
+                .build();
+        mAdView.loadAd(adRequest);
+
+        //Adware interstitial ads
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(this.getString(R.string.banner_ad_unit_id));
+        AdRequest adRequestInterstitialAd = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("E112885C2D32D31690C7B60F25C89356")
+                .build();
+        mInterstitialAd.loadAd(adRequestInterstitialAd);
     }
 
     @Override
@@ -117,12 +159,20 @@ public class MainActivity extends Activity {
     }
 
     private void doScare(){
-        Intent intent = new Intent(MainActivity.this,WaitingForScare.class);
-        intent.putExtra(TIME_EXTRA,currentTime);
-        intent.putExtra(IMAGE_EXTRA,currentImageID);
-        intent.putExtra(SOUND_EXTRA,currentSoundID);
-        startService(intent);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.SECOND, currentTime);
+        Intent myIntent = new Intent(MainActivity.this, ScareReceiver.class);
+        myIntent.putExtra(TIME_EXTRA,currentTime);
+        myIntent.putExtra(IMAGE_EXTRA, currentImageID);
+        myIntent.putExtra(SOUND_EXTRA, currentSoundID);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, myIntent, 0);
+
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+
         this.finish();
+
     }
 
     private void playSound(){
@@ -215,6 +265,10 @@ public class MainActivity extends Activity {
         public void onNothingSelected(AdapterView<?> arg0) {
             // TODO Auto-generated method stub
         }
+    }
+
+    public InterstitialAd getMInterstitialAd(){
+        return mInterstitialAd;
     }
 }
 
