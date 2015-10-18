@@ -97,6 +97,7 @@ public class MainActivity extends Activity {
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("E112885C2D32D31690C7B60F25C89356")
+                .addTestDevice("13E7A5DDF2981F979D554ED02BC571B3")
                 .build();
         mAdView.loadAd(adRequest);
 
@@ -106,6 +107,7 @@ public class MainActivity extends Activity {
         AdRequest adRequestInterstitialAd = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("E112885C2D32D31690C7B60F25C89356")
+                .addTestDevice("13E7A5DDF2981F979D554ED02BC571B3")
                 .build();
         mInterstitialAd.loadAd(adRequestInterstitialAd);
     }

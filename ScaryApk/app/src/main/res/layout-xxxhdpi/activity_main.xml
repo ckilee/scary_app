@@ -25,9 +25,7 @@
         ads:adUnitId="@string/banner_ad_unit_id"
         android:layout_below="@+id/button_scare"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentStart="true">
     </com.google.android.gms.ads.AdView>
 
     <TextView
@@ -37,7 +35,7 @@
         android:id="@+id/choose_audio"
         android:textColor="#e0434b"
         android:textStyle="bold"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="53dp"
         android:layout_below="@+id/spinner_time"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -61,7 +59,7 @@
         android:id="@+id/choose_image"
         android:textColor="#e0434b"
         android:textStyle="bold"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="38dp"
         android:layout_below="@+id/spinner_audio"
         android:layout_alignRight="@+id/choose_audio"
         android:layout_alignEnd="@+id/choose_audio" />
@@ -108,14 +106,13 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/imageView"
-        android:src="@drawable/daughter"
+        android:src="@drawable/anabelle"
         android:scaleType="fitCenter"
         android:gravity="center_horizontal"
         android:layout_alignTop="@+id/choose_image"
         android:layout_toRightOf="@+id/spinner_image"
         android:layout_toEndOf="@+id/spinner_image"
-        android:layout_alignBottom="@+id/spinner_image"
-        android:layout_alignParentTop="false" />
+        android:layout_alignBottom="@+id/spinner_image" />
 
     <TextView
         android:layout_width="wrap_content"
