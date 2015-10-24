@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.Map;
@@ -25,11 +26,15 @@ public class ScareActivity extends Activity {
     private ImageView scareImageView;
     private int currentImageID = 0;
     private int currentSoundID = 0;
+    private InterstitialAd mInterstitialAd;
+    private boolean intertistialLoadedLocally = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scare);
+
+        loadInterstistialAD();
 
         AudioManager am =
                 (AudioManager) getSystemService(Context.AUDIO_SERVICE);
@@ -55,12 +60,35 @@ public class ScareActivity extends Activity {
         if(scareImageView!=null)  //imageView is a ImageView
             scareImageView.setImageDrawable(image);
 
-        new ShowInterstitialTask().execute(0);
+        int delay = 2500;
+        if(intertistialLoadedLocally) {
+            //If intertistial loading in this class, We will give 1 more second to load banner
+            delay = 3500;
+        }
+        new ShowInterstitialTask().execute(delay);
 
     }
 
+    private void loadInterstistialAD(){
+        try {
+            mInterstitialAd = MainActivity.getInstance().getInterstitialAd();
+        } catch(NullPointerException ne){
+            mInterstitialAd = new InterstitialAd(this);
+            mInterstitialAd.setAdUnitId(this.getString(R.string.banner_ad_unit_id));
+            /*AdRequest adRequestInterstitialAd = new AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                    .addTestDevice("E112885C2D32D31690C7B60F25C89356")
+                    .addTestDevice("13E7A5DDF2981F979D554ED02BC571B3")
+                    .build();*/
+            AdRequest adRequestInterstitialAd = new AdRequest.Builder().build();
+
+            mInterstitialAd.loadAd(adRequestInterstitialAd);
+            intertistialLoadedLocally = true;
+        }
+    }
+
     private void displayInterstitial(){
-        InterstitialAd mInterstitialAd = MainActivity.getInstance().getMInterstitialAd();
+
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         }
@@ -93,13 +121,10 @@ public class ScareActivity extends Activity {
         @Override
         protected Void doInBackground(Integer... params){
             try {
-                Thread.sleep(2500);
+                Thread.sleep(params[0]);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-
-
             return null;
         }
 

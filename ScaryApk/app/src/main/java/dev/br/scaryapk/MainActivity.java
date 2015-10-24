@@ -93,14 +93,14 @@ public class MainActivity extends Activity {
     private void loadAdware(){
         //Adware Main Activity
         AdView mAdView = (AdView) findViewById(R.id.adView);
-        mAdView.setAdUnitId("ca-app-pub-9505366133372164/4738060338");
-        AdRequest adRequest = new AdRequest.Builder().build();
 
+        AdRequest adRequest = new AdRequest.Builder().build();
         /*AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("E112885C2D32D31690C7B60F25C89356")
                 .addTestDevice("13E7A5DDF2981F979D554ED02BC571B3")
                 .build();*/
+
         mAdView.loadAd(adRequest);
 
         //Adware interstitial ads
@@ -112,6 +112,7 @@ public class MainActivity extends Activity {
                 .addTestDevice("13E7A5DDF2981F979D554ED02BC571B3")
                 .build();*/
         AdRequest adRequestInterstitialAd = new AdRequest.Builder().build();
+
         mInterstitialAd.loadAd(adRequestInterstitialAd);
     }
 
@@ -274,7 +275,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    public InterstitialAd getMInterstitialAd(){
+    public InterstitialAd getInterstitialAd(){
         return mInterstitialAd;
     }
 }
