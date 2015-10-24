@@ -146,7 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_play"
-        android:background="@drawable/play38"
+        android:background="@android:drawable/ic_lock_silent_mode_off"
         android:layout_alignTop="@+id/spinner_audio"
         android:layout_toRightOf="@+id/choose_time"
         android:layout_toEndOf="@+id/choose_time"

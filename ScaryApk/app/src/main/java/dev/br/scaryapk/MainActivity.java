@@ -244,6 +244,10 @@ public class MainActivity extends Activity {
                 currentTime = 35;
             } else if(selected.equals("60 seconds")){
                 currentTime = 60;
+            } else if(selected.equals("75 seconds")){
+                currentTime = 75;
+            } else if(selected.equals("90 seconds")){
+                currentTime = 90;
             }
 
         }

@@ -17,6 +17,8 @@
         <item>30 seconds</item>
         <item>35 seconds</item>
         <item>60 seconds</item>
+        <item>75 seconds</item>
+        <item>90 seconds</item>
     </string-array>
 
     <string-array name="audio_arrays" translatable="false">
