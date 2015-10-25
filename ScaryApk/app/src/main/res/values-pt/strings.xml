@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Pegadinha do susto</string>
     <string name="choose_image">Selecione a imagem:</string>
     <string name="choose_audio">Selecione o som:</string>
     <string name="choose_time">Selecione o tempo de espera:</string>

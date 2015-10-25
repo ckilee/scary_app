@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Scary Nightmare</string>
+    <string name="app_name">Scary Prank Nightmare</string>
 
 
     <string name="action_settings" translatable="false">Settings</string>
@@ -38,6 +38,6 @@
     <string name="title_activity_scare" translatable="false">ScareActivity</string>
 
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-9505366133372164/8299119138</string>
-    <string name="banner_ad_unit_id2" translatable="false">ca-app-pub-9505366133372164/4738060338</string>
+    <string name="banner_ad_unit_id2" translatable="false">ca-app-pub-9505366133372164/1888351936</string>
 
 </resources>
