@@ -9,7 +9,7 @@
     <string name="start_scare">Scare!</string>
     <string name="play" translatable="false">Play</string>
 
-    <string-array name="time_arrays" translatable="false">
+    <string-array name="time_arrays" >
         <item>10 seconds</item>
         <item>15 seconds</item>
         <item>20 seconds</item>
@@ -21,20 +21,21 @@
         <item>90 seconds</item>
     </string-array>
 
-    <string-array name="audio_arrays" translatable="false">
-        <item>Audio 1</item>
-        <item>Audio 2</item>
-        <item>Audio 3</item>
-        <item>Audio 4</item>
+    <string-array name="audio_arrays" >
+        <item>Scream 1</item>
+        <item>Scream 2</item>
+        <item>Scream 3</item>
+        <item>Scream 4</item>
     </string-array>
 
-    <string-array name="image_arrays" translatable="false">
+    <string-array name="image_arrays" >
         <item>Daughter</item>
         <item>Clown</item>
         <item>Daemon</item>
         <item>Scary Face 1</item>
         <item>Scary Face 2</item>
     </string-array>
+
     <string name="title_activity_scare" translatable="false">ScareActivity</string>
 
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-9505366133372164/8299119138</string>

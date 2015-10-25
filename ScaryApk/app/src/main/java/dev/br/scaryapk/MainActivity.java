@@ -94,24 +94,24 @@ public class MainActivity extends Activity {
         //Adware Main Activity
         AdView mAdView = (AdView) findViewById(R.id.adView);
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        /*AdRequest adRequest = new AdRequest.Builder()
+        //AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("E112885C2D32D31690C7B60F25C89356")
                 .addTestDevice("13E7A5DDF2981F979D554ED02BC571B3")
-                .build();*/
+                .build();
 
         mAdView.loadAd(adRequest);
 
         //Adware interstitial ads
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(this.getString(R.string.banner_ad_unit_id));
-        /*AdRequest adRequestInterstitialAd = new AdRequest.Builder()
+        AdRequest adRequestInterstitialAd = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("E112885C2D32D31690C7B60F25C89356")
                 .addTestDevice("13E7A5DDF2981F979D554ED02BC571B3")
-                .build();*/
-        AdRequest adRequestInterstitialAd = new AdRequest.Builder().build();
+                .build();
+        //AdRequest adRequestInterstitialAd = new AdRequest.Builder().build();
 
         mInterstitialAd.loadAd(adRequestInterstitialAd);
     }
@@ -182,6 +182,7 @@ public class MainActivity extends Activity {
     }
 
     private void playSound(){
+
         String selected = audioSpinner.getSelectedItem().toString();
         int rawAudio = 0;
         if(selected.equals("Audio 1"))
@@ -201,17 +202,23 @@ public class MainActivity extends Activity {
     public class ImageOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
 
-            String selected = parent.getItemAtPosition(pos).toString();
+            /*
+                    <item>Daughter</item>            - 0
+                    <item>Clown</item>               - 1
+                    <item>Daemon</item>              - 2
+                    <item>Scary Face 1</item>        - 3
+                    <item>Scary Face 2</item>        - 4
+             */
             int imageResource = 0;
-            if(selected.equals("Daughter")){
+            if(pos==0){
                 imageResource = R.drawable.daughter;
-            } else if(selected.equals("Clown")){
+            } else if(pos==1){
                 imageResource = R.drawable.clown;
-            } else if(selected.equals("Daemon")){
+            } else if(pos==2){
                 imageResource = R.drawable.demon;
-            } else if(selected.equals("Scary Face 1")){
+            } else if(pos==3){
                 imageResource = R.drawable.scaryface1;
-            } else if(selected.equals("Scary Face 2")){
+            } else if(pos==4){
                 imageResource = R.drawable.scaryface2;
             }
             currentImageID = imageResource;
@@ -229,24 +236,23 @@ public class MainActivity extends Activity {
     public class TimeOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
 
-            String selected = parent.getItemAtPosition(pos).toString();
-            if(selected.equals("10 seconds")){
+            if(pos==0){
                 currentTime = 10;
-            } else if(selected.equals("15 seconds")){
+            } else if(pos==1){
                 currentTime = 15;
-            } else if(selected.equals("20 seconds")){
+            } else if(pos==2){
                 currentTime = 20;
-            } else if(selected.equals("25 seconds")){
+            } else if(pos==3){
                 currentTime = 25;
-            } else if(selected.equals("30 seconds")){
+            } else if(pos==4){
                 currentTime = 30;
-            } else if(selected.equals("35 seconds")){
+            } else if(pos==5){
                 currentTime = 35;
-            } else if(selected.equals("60 seconds")){
+            } else if(pos==6){
                 currentTime = 60;
-            } else if(selected.equals("75 seconds")){
+            } else if(pos==7){
                 currentTime = 75;
-            } else if(selected.equals("90 seconds")){
+            } else if(pos==8){
                 currentTime = 90;
             }
 
@@ -261,14 +267,13 @@ public class MainActivity extends Activity {
     public class SoundOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
 
-            String selected = parent.getItemAtPosition(pos).toString();
-            if(selected.equals("Audio 1"))
+            if(pos==0)
                 currentSoundID = R.raw.audio1;
-            if(selected.equals("Audio 2"))
+            if(pos==1)
                 currentSoundID = R.raw.audio2;
-            if(selected.equals("Audio 3"))
+            if(pos==2)
                 currentSoundID = R.raw.audio3;
-            if(selected.equals("Audio 4"))
+            if(pos==3)
                 currentSoundID = R.raw.audio4;
 
         }
