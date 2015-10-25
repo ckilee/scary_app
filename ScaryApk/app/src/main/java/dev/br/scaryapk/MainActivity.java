@@ -29,6 +29,8 @@ import com.google.android.gms.ads.InterstitialAd;
 import java.util.Calendar;
 import java.util.Date;
 
+import static dev.br.scaryapk.R.color.accent_material_light;
+
 
 public class MainActivity extends Activity {
 //public class MainActivity extends Activity {
@@ -183,19 +185,7 @@ public class MainActivity extends Activity {
 
     private void playSound(){
 
-        String selected = audioSpinner.getSelectedItem().toString();
-        int rawAudio = 0;
-        if(selected.equals("Audio 1"))
-            rawAudio = R.raw.audio1;
-        if(selected.equals("Audio 2"))
-            rawAudio = R.raw.audio2;
-        if(selected.equals("Audio 3"))
-            rawAudio = R.raw.audio3;
-        if(selected.equals("Audio 4"))
-            rawAudio = R.raw.audio4;
-        currentSoundID = rawAudio;
-
-        MediaPlayer mp = MediaPlayer.create(this,rawAudio);
+        MediaPlayer mp = MediaPlayer.create(this,currentSoundID);
         mp.start();
     }
 
