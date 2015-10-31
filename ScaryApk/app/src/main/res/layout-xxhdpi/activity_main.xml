@@ -81,6 +81,17 @@
         android:scaleType="centerCrop"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignRight="@+id/space5"
+        android:layout_alignEnd="@+id/space5" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_button"
+        android:id="@+id/button_share"
+        android:layout_below="@+id/imageView"
+        android:layout_toRightOf="@+id/button_scare"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp" />
@@ -153,6 +164,13 @@
         android:background="@drawable/bloodtext"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="20px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/space5" />
 
 </RelativeLayout>
 

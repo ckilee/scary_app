@@ -5,6 +5,7 @@
     <string name="choose_audio">Selecione o som:</string>
     <string name="choose_time">Selecione o tempo de espera:</string>
     <string name="start_scare">Assustar!</string>
+    <string name="share_button">Compart.</string>
 
     <string-array name="time_arrays" >
         <item>10 segundos</item>

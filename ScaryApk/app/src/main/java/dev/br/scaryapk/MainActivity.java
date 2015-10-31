@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
     private Spinner timeSpinner;
     private Button scareButton;
     private Button playButton;
+    private Button shareButton;
     private int currentTime;
     public static final String TIME_EXTRA = "TimeExtra";
     public static final String IMAGE_EXTRA = "ImageExtra";
@@ -73,6 +74,8 @@ public class MainActivity extends Activity {
         //imageSpinner.setOnItemSelectedListener(new ImageOnItemSelectedListener());
 
         imageView = (ImageView)findViewById(R.id.imageView);
+
+        shareButton = (Button)findViewById(R.id.button_share);
 
         scareButton = (Button)findViewById(R.id.button_scare);
         playButton = (Button)findViewById(R.id.button_play);
@@ -164,6 +167,21 @@ public class MainActivity extends Activity {
             }
         };
         playButton.setOnClickListener(listenerPlay);
+
+        //Share Button
+        View.OnClickListener shareListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                String message = "Scary NightMare - https://play.google.com/store/apps/details?id=dev.br.scaryapk";
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT, message);
+
+                startActivity(Intent.createChooser(share, "Scary Nightmare"));
+
+            }
+        };
+        shareButton.setOnClickListener(shareListener);
     }
 
     private void doScare(){

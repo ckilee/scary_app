@@ -75,18 +75,7 @@
         android:layout_alignRight="@+id/spinner_audio"
         android:layout_alignEnd="@+id/spinner_audio" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_scare"
-        android:id="@+id/button_scare"
-        android:layout_below="@+id/imageView"
-        android:scaleType="centerCrop"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp" />
+
 
     <!--
     <ImageView
@@ -157,6 +146,36 @@
         android:background="@drawable/bloodtext"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/adView"
+        android:id="@+id/space" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_scare"
+        android:id="@+id/button_scare"
+        android:layout_below="@+id/imageView"
+        android:scaleType="centerCrop"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignRight="@+id/space"
+        android:layout_alignEnd="@+id/space" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_button"
+        android:id="@+id/button_share"
+        android:layout_below="@+id/imageView"
+        android:layout_toRightOf="@+id/button_scare"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>
 
@@ -173,4 +192,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
     </com.google.android.gms.ads.AdView>
+
+
 </RelativeLayout>
