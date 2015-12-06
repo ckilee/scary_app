@@ -82,8 +82,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
-        android:layout_alignRight="@+id/button_play"
-        android:layout_alignEnd="@+id/button_play" />
+        android:layout_alignRight="@+id/space7"
+        android:layout_alignEnd="@+id/space7" />
 
     <Button
         android:layout_width="wrap_content"
@@ -169,7 +169,8 @@
         android:layout_width="20px"
         android:layout_height="20px"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/space7" />
 
 </RelativeLayout>
 

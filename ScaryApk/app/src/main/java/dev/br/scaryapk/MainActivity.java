@@ -184,17 +184,17 @@ public class MainActivity extends Activity {
         shareButton.setOnClickListener(shareListener);
     }
 
-    private void doScare(){
+    private void doScare() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(Calendar.SECOND, currentTime);
         Intent myIntent = new Intent(MainActivity.this, ScareReceiver.class);
-        myIntent.putExtra(TIME_EXTRA,currentTime);
+        myIntent.putExtra(TIME_EXTRA, currentTime);
         myIntent.putExtra(IMAGE_EXTRA, currentImageID);
         myIntent.putExtra(SOUND_EXTRA, currentSoundID);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, myIntent, 0);
 
-        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
 
         this.finish();
